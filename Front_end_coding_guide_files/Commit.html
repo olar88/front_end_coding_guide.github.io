@@ -674,7 +674,6 @@ blockquote {
 }
 	
 </style></head><body><article id="a7c918e6-a525-41d4-9280-7ab8c32d4635" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="./file_Commit/Frame_4.svg" style="cursor: pointer;"/></div><h1 class="page-title">Commit</h1><p class="page-description"></p></header><div class="page-body"><h2 id="97756753-454f-4a5a-a0dd-09b734726e3a" class="">Basic <strong><strong>commit message</strong></strong></h2><pre id="eb34ec0f-dc16-4b7a-b794-cdeccc47f8d1" class="code"><code>
-// [Header]
 &lt;Type&gt; (Scope) : &lt;Description&gt; 
 [Body] 
 [Footers]</code></pre><ol type="1" id="d98dbe99-5636-4cc5-a833-e56a7edde779" class="numbered-list" start="1"><li><strong><code>Type</code></strong><strong> : 本次提交的類型 (必)</strong><table id="95cf986c-3ead-4ca1-a6b1-9ee387f90a3f" class="simple-table"><tbody><tr id="118211da-e1a0-46f6-86fe-9b6e508f8f60"><td id="tJ^Y" class="block-color-blue_background">Type EN</td><td id="gmwd" class="block-color-blue_background">Type ZH</td><td id="XfE]" class="block-color-blue_background">definition</td></tr><tr id="1edd035b-532a-4392-ac27-05d7fb0e362a"><td id="tJ^Y" class=""><strong>fix</strong></td><td id="gmwd" class="">修正</td><td id="XfE]" class="">修正 bug</td></tr><tr id="8b6f9018-3458-46ab-9bee-5bd5628175d9"><td id="tJ^Y" class=""><strong>feat</strong></td><td id="gmwd" class="">新建</td><td id="XfE]" class="">修改 / 新增功能等</td></tr><tr id="b2459bb0-24e3-4b6e-9c86-d5edd381bd59"><td id="tJ^Y" class=""><strong>docs</strong></td><td id="gmwd" class="">文檔更動</td><td id="XfE]" class="">純文檔更動 ( 如: READ.md 等文件 ) </td></tr><tr id="85553a52-554f-4109-ab12-79d5642a6af6"><td id="tJ^Y" class=""><strong>style</strong></td><td id="gmwd" class="">調整</td><td id="XfE]" class="">整理 / 調整程式碼 ( 不影響程式主邏輯 )
@@ -683,17 +682,24 @@ ex: 改寫 TS</td></tr><tr id="6d6b31e1-65ea-4897-aa03-88fbeb271c46"><td id="tJ^
 </p></li></ol><ol type="1" id="6287de20-654a-4920-9249-c0fe6aaee6fc" class="numbered-list" start="3"><li><strong><code>Description</code></strong><strong> : 本次改動的簡述 (必)</strong><p id="e7b4e3d9-7db9-4616-bb33-192103dc0682" class="">簡短但精確地描述</p><p id="fd9839e9-f532-4d6f-b63f-380845e12804" class="">
 </p></li></ol><ol type="1" id="e69cf6a5-ce36-4fd0-8734-22a35aaa99f0" class="numbered-list" start="4"><li><mark class="highlight-blue"><strong><code>Body</code></strong></mark><mark class="highlight-blue"><strong> </strong></mark><strong>: 本次改動的完整描述 (選)</strong><p id="2980d916-ea7c-42f4-9922-f2a2705ea0b4" class="">詳細描述本次修改</p><p id="200fb291-17b1-4821-858d-3aee405a5ba5" class="">
 </p></li></ol><ol type="1" id="dc513f94-e353-45b4-a0b2-425d596774c4" class="numbered-list" start="5"><li><mark class="highlight-blue"><strong><code>Footer</code></strong></mark><mark class="highlight-blue"><strong> </strong></mark><strong>: 備註事項 (選)</strong><p id="21b1ce40-d4e8-4f18-875a-12ac6fae57df" class="">是否為版本的變更或是 issue 的修復</p><p id="82ed2239-fe5d-43dc-b093-06b81cb1e486" class="">
-</p></li></ol><pre id="571901ec-bf88-4f24-a145-ef5a830a3195" class="code"><code>//實例
-fix UserLevelFirst: 職等搜尋參數修正
+</p></li></ol>
+<ol type="1" id="1a036b18-25b3-440d-a575-d26fb44e841c" class="numbered-list" start="1"><li><mark class="highlight-default">實例 1 :</mark><p id="33e12600-9a1b-43dc-a4d8-8f7ff80f1abe" class="">純粹由 Type + Scope + Description commit請以單行為主</p><pre id="571901ec-bf88-4f24-a145-ef5a830a3195" class="code"><code>fix UserLevelFirst: 職等搜尋參數修正;
+docs: 使用者權限JSON更新</code></pre></li></ol>
+	<ol type="1" id="0ff1fc66-9a68-4cf0-b9e8-be5336b68f68" class="numbered-list" start="2"><li><mark class="highlight-default">實例 2 :</mark><p id="7c2591dc-07b8-49d0-b812-34aeb0a74a75" class="">純粹由 Type + Scope + Description commit請以單行為主</p><pre id="9583a7c2-ae7b-496f-ac10-4139208b7423" class="code"><code>// Head
+		perf UserLevelFirst/UserDutyFirst: 畫面渲染順序
+	
+// Body
+		問題:
+		1. 權限判斷再渲染時不同步, 偶爾有偶爾沒有
+		
+		調整:
+		1. init(didMount) 執行前加入是否已執行權限檢查,並統一寫法
+	
+// Footer
+		issue #001128</code></pre></li></ol>
 
-//實例
-perf UserLevelFirst/UserDutyFirst: 畫面渲染順序
 
-問題:
-1. 權限判斷再渲染時不同步, 偶爾有偶爾沒有
-
-調整:
-1. init(didMount) 執行前加入是否已執行權限檢查,並統一寫法</code></pre><p id="f9c86480-02fa-4bfc-977b-1ee29db84bbd" class="">
+<p id="f9c86480-02fa-4bfc-977b-1ee29db84bbd" class="">
 </p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
 <script>
 	document.querySelector('.icon').addEventListener('click',()=>{window.history.back()})
